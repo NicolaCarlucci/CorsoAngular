@@ -1,0 +1,51 @@
+<form class="userForm" #f="ngForm">
+    <input type="hidden" name="id" [(ngModel)]="user.id">
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="firstname">First name</label>
+            <input required name="firstname" id="firstname" [(ngModel)]="user.name" class="form-control"
+                pattern="[a-zA-Z\s]*" #firstName="ngModel" minlength="3">
+            <div *ngIf="firstName.dirty && firstName.touched && firstName.invalid">
+                <div class="alert-danger" *ngIf="firstName.errors.required">
+                    The field name is required
+                </div>
+                <div class="alert-danger" *ngIf="firstName.errors.minlength">
+                    {{firstName.errors.minlength | json}}
+                </div>
+                <div class="alert-danger" *ngIf="firstName.errors.pattern">
+                    {{firstName.errors.pattern | json}}
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="lastname">Last name</label>
+            <input name="lastname" id="lastname" [(ngModel)]="user.lastname" class="form-control">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="fiscalcode">fiscal code</label>
+            <input name="fiscalcode" id="fiscalcode" [(ngModel)]="user.fiscalcode" class="form-control">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="province">Province</label>
+            <input name="province" id="province" [(ngModel)]="user.province" class="form-control">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="phone">Phone</label>
+            <input name="phone" id="phone" [(ngModel)]="user.phone" class="form-control">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" [(ngModel)]="user.age" class="form-control">
+        </div>
+    </div>
+    <div class="form-group form-footer text-center">
+        <button (click)="backToUsers()" class="btn btn-primary">Back</button>
+        <button class="btn btn-secondary" (click)="resetForm(f.form)">Reset</button>
+        <button [disabled]="f.invalid" class="btn btn-success" (click)="saveUser()">SAVE</button>
+    </div>
+</form>

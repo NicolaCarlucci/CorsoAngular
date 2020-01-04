@@ -1,0 +1,40 @@
+/* th{
+    background-color: black;
+    color:green;
+    padding: 20px
+}
+
+td{
+    background: silver;
+    color:red;
+    padding: 5px;
+    border: 1px solid white;
+}
+
+button{
+    padding: 5px;
+    border:1px solid black
+}
+
+button.delete{
+    background: white;
+    color:red;
+    padding:5px;
+
+}
+
+button.update{
+    background: white;
+    color:green;
+    padding:5px;
+} */
+
+.buttons {
+    width: 130px;
+    text-align: center;
+}
+
+.buttons button {
+    padding: 1px;
+    width: 35px;
+}
